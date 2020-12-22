@@ -14,7 +14,6 @@ void dft(IN_TYPE sample_real[N], IN_TYPE sample_imag[N]) {
 
 	// Calculate each frequency domain sample iteratively
 	for (i = 0; i < N; i += 1) {
-		#pragma HLS pipeline II=32
 		temp_real[i] = 0;
 		temp_imag[i] = 0;
 
@@ -23,6 +22,7 @@ void dft(IN_TYPE sample_real[N], IN_TYPE sample_imag[N]) {
 
 		// Calculate the jth frequency sample sequentially
 		for (j = 0; j < N; j += 1) {
+			#pragma HLS pipeline
 			// Utilize HLS tool to calculate sine and cosine values
 			c = cos(j * w);
 			s = -sin(j * w);
@@ -36,7 +36,7 @@ void dft(IN_TYPE sample_real[N], IN_TYPE sample_imag[N]) {
 
 	// Perform an inplace DFT, i.e., copy result into the input arrays
 	for (i = 0; i < N; i += 1) {
-		#pragma HLS pipeline II=32
+		//#pragma HLS inline
 		sample_real[i] = temp_real[i];
 		sample_imag[i] = temp_imag[i];
 	}
