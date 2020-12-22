@@ -5,14 +5,14 @@ Date: 2020/12/22
 Reference: https://github.com/KastnerRG/pp4fpgas
 
 ## Project Description
-This project utilizes discrete Fourier transform (DFT) to transfer the signal from time domain to frequency domain. And the primary method is to separate real and imaginary part, and use sine / cosine function to perform signal tranform. However the two-layer loop is the main bottleneck of rntire design, so I am wondering to optimize this two-layer loop for lower latency and better performance.
+This project utilizes discrete Fourier transform (DFT) to transfer the signal from time domain to frequency domain. And the primary method is to separate real and imaginary part, and use sine / cosine function to perform signal tranform. However the two-layer loop is the main bottleneck of rntire design, so I tried to optimize this two-layer loop for lower latency and better performance.
 
 ## HLS Optimization
 original file: dft.c, dft_precompute.c, dft_unroll_inner2.c
 the modified file by my own is ```dft_pipeline.c```
 
-in the file dft_pipeline.c
-```c= 15
+in the file ```dft_pipeline.c```
+```c
 	// Calculate each frequency domain sample iteratively
 	for (i = 0; i < N; i += 1) {
 		#pragma HLS pipeline II=32
