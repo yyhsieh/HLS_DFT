@@ -14,7 +14,6 @@ the modified file by my own is ```dft_pipeline.c```
 in the file ```dft_pipeline.c```
 ```c
 	// Calculate each frequency domain sample iteratively
-	// Calculate each frequency domain sample iteratively
 	for (i = 0; i < N; i += 1) {
 		temp_real[i] = 0;
 		temp_imag[i] = 0;
