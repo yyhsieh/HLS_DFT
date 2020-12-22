@@ -1,9 +1,9 @@
 # HLS_DFT 
-HLS program for DFT
-Date: 2020/12/22
+HLS program for DFT   
+Date: 2020/12/22   
 
-Author: D06943001 Yi-Yen Hsieh
-Mail: D06943001@ntu.edu.tw
+Author: D06943001 Yi-Yen Hsieh   
+Mail: D06943001@ntu.edu.tw   
 
 Reference: https://github.com/KastnerRG/pp4fpgas
 
